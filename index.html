@@ -155,11 +155,30 @@
   .fill-hint{font-size:12px;color:var(--muted);margin-top:8px;}
   .fill-card.shown .fill-hint{display:none;}
 
+  /* ---------- 重点句子 ---------- */
+  .grid-sentence{display:grid;grid-template-columns:1fr;gap:14px;}
+  .sentence-card{
+    background:#fff;border:2px solid var(--ink);border-radius:14px;
+    padding:18px 52px 16px 18px;cursor:pointer;position:relative;
+    box-shadow:4px 4px 0 rgba(43,38,32,.15);
+    transition:transform .12s,box-shadow .12s,background .12s;
+  }
+  .sentence-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(43,38,32,.18);}
+  .sentence-card.reading{background:var(--blue-light);}
+  .sentence-zh{font-size:14px;color:var(--coral);font-weight:700;margin-bottom:7px;}
+  .sentence-en{font-size:17px;line-height:1.65;font-weight:700;}
+  .sentence-hint{font-size:12px;color:var(--muted);margin-top:7px;}
+  .sentence-card.revealed .sentence-hint{display:none;}
+
   /* 遮挡模式 */
   body[data-mode="hide-zh"] .card .zh{filter:blur(6px);opacity:.6;}
   body[data-mode="hide-zh"] .card.revealed .zh{filter:none;opacity:1;}
   body[data-mode="hide-en"] .card .en{filter:blur(6px);opacity:.6;}
   body[data-mode="hide-en"] .card.revealed .en{filter:none;opacity:1;}
+  body[data-mode="hide-zh"] .sentence-card .sentence-zh{filter:blur(6px);opacity:.6;}
+  body[data-mode="hide-zh"] .sentence-card.revealed .sentence-zh{filter:none;opacity:1;}
+  body[data-mode="hide-en"] .sentence-card .sentence-en{filter:blur(7px);opacity:.55;}
+  body[data-mode="hide-en"] .sentence-card.revealed .sentence-en{filter:none;opacity:1;}
 
   .dots{border-top:2px dotted #c9bfa8;margin:40px 0 0;}
 
@@ -684,6 +703,109 @@ const UNITS = [
       { en: "hundreds of",          zh: "数以百计",         ipa: "/ˈhʌndrədz əv/" },
       { en: "blow away",            zh: "吹走",             ipa: "/bləʊ əˈweɪ/" }
     ]
+  },
+  {
+    id: "u5",
+    title: "Unit 5 · 知识小结",
+    source: "课本 Unit 5 知识小结页（P31–32）",
+
+    /* 一、核心词与派生（1–10） */
+    core: [
+      { en: "collect",       zh: "收集；采集",                 ipa: "/kəˈlekt/",        star: false,
+        deriv: [{ label: "名", en: "collection",    zh: "收集；收藏品",       ipa: "/kəˈlekʃn/" },
+                { label: "人", en: "collector",     zh: "收藏家；收集者",     ipa: "/kəˈlektə(r)/" }] },
+      { en: "tie",           zh: "（用线、绳等）捆；系",       ipa: "/taɪ/",           star: false,
+        deriv: [{ label: "现在分词", en: "tying",   zh: "捆；系（现在分词）", ipa: "/ˈtaɪɪŋ/" }] },
+      { en: "weigh",         zh: "有……重；重",               ipa: "/weɪ/",           star: false,
+        deriv: [{ label: "名", en: "weight",        zh: "重量",               ipa: "/weɪt/" }] },
+      { en: "breathe",       zh: "呼吸",                     ipa: "/briːð/",         star: false,
+        deriv: [{ label: "名", en: "breath",        zh: "呼吸；气息",         ipa: "/breθ/" }] },
+      { en: "pass",          zh: "沿某方向前进；经过",         ipa: "/pɑːs/",          star: false,
+        deriv: [{ label: "介", en: "past",          zh: "经过",               ipa: "/pɑːst/" }] },
+      { en: "prepare",       zh: "使做好准备；把……预备好",     ipa: "/prɪˈpeə(r)/",    star: false,
+        deriv: [{ label: "名", en: "preparation",   zh: "准备",               ipa: "/ˌprepəˈreɪʃn/" }] },
+      { en: "poem",          zh: "诗",                       ipa: "/ˈpəʊɪm/",        star: false,
+        deriv: [{ label: "人", en: "poet",          zh: "诗人",               ipa: "/ˈpəʊɪt/" }] },
+      { en: "express",       zh: "表示；表达；表露",           ipa: "/ɪkˈspres/",      star: false,
+        deriv: [{ label: "名", en: "expression",    zh: "表示；表达；表情",   ipa: "/ɪkˈspreʃn/" }] },
+      { en: "determination", zh: "决心；坚毅；坚定",           ipa: "/dɪˌtɜːmɪˈneɪʃn/", star: false,
+        deriv: [{ label: "动", en: "determine",     zh: "决定；确定",         ipa: "/dɪˈtɜːmɪn/" }] },
+      { en: "neighbour",     zh: "邻居",                     ipa: "/ˈneɪbə(r)/",     star: false,
+        deriv: [{ label: "名", en: "neighbourhood", zh: "附近地区；街区",     ipa: "/ˈneɪbəhʊd/" }] }
+    ],
+
+    /* 二、基础词汇（11–41） */
+    basic: [
+      { en: "spacesuit",      zh: "航天服；宇航服",       ipa: "/ˈspeɪssuːt/",       star: false },
+      { en: "leave",          zh: "离开",                 ipa: "/liːv/",              star: false },
+      { en: "kilometre",      zh: "千米；公里",           ipa: "/kɪˈlɒmɪtə(r)/",      star: false },
+      { en: "weak",           zh: "虚弱的；无力的",       ipa: "/wiːk/",              star: false },
+      { en: "low",            zh: "低于通常数量的",       ipa: "/ləʊ/",               star: false },
+      { en: "facility",       zh: "设施；设备",           ipa: "/fəˈsɪləti/",         star: false },
+      { en: "adventure",      zh: "冒险；冒险经历",       ipa: "/ədˈventʃə(r)/",      star: false },
+      { en: "experiment",     zh: "实验；试验",           ipa: "/ɪkˈsperɪmənt/",      star: false },
+      { en: "dream",          zh: "梦想；理想；做梦；梦见", ipa: "/driːm/",             star: false },
+      { en: "chance",         zh: "机会；机遇",           ipa: "/tʃɑːns/",            star: false },
+      { en: "send",           zh: "邮寄；发送",           ipa: "/send/",              star: false },
+      { en: "introduction",   zh: "序言；引言",           ipa: "/ˌɪntrəˈdʌkʃn/",      star: false },
+      { en: "view",           zh: "景色；风景",           ipa: "/vjuː/",              star: false },
+      { en: "someday",        zh: "总有一天；有朝一日",   ipa: "/ˈsʌmdeɪ/",           star: false },
+      { en: "experience",     zh: "经历；阅历",           ipa: "/ɪkˈspɪəriəns/",      star: false },
+      { en: "lander",         zh: "着陆器",               ipa: "/ˈlændə(r)/",         star: false },
+      { en: "island",         zh: "岛",                   ipa: "/ˈaɪlənd/",           star: false },
+      { en: "ancient",        zh: "古老的；很老的",       ipa: "/ˈeɪnʃənt/",          star: false },
+      { en: "universe",       zh: "宇宙",                 ipa: "/ˈjuːnɪvɜːs/",        star: false },
+      { en: "already",        zh: "已经；早已",           ipa: "/ɔːlˈredi/",          star: false },
+      { en: "century",        zh: "世纪",                 ipa: "/ˈsentʃəri/",         star: false },
+      { en: "circle",         zh: "环行",                 ipa: "/ˈsɜːkl/",            star: false },
+      { en: "surface",        zh: "表面；表层；面",       ipa: "/ˈsɜːfɪs/",           star: false },
+      { en: "release",        zh: "放开；松开",           ipa: "/rɪˈliːs/",           star: false },
+      { en: "kilogram",       zh: "千克；公斤",           ipa: "/ˈkɪləɡræm/",         star: false },
+      { en: "programme",      zh: "计划；方案",           ipa: "/ˈprəʊɡræm/",         star: false },
+      { en: "space station",  zh: "空间站",               ipa: "/ˈspeɪs steɪʃn/",     star: false },
+      { en: "do exercise",    zh: "锻炼；运动",           ipa: "/duː ˈeksəsaɪz/",     star: false },
+      { en: "take photos",    zh: "拍照",                 ipa: "/teɪk ˈfəʊtəʊz/",     star: false },
+      { en: "get into orbit", zh: "进入轨道",             ipa: "/ɡet ˈɪntuː ˈɔːbɪt/", star: false },
+      { en: "thousands of",   zh: "数以千计；成千上万",   ipa: "/ˈθaʊzəndz əv/",      star: false }
+    ],
+
+    /* 三、课文短语（42–63） */
+    phrases: [
+      { en: "travel into space",                zh: "去太空旅行",             ipa: "/ˈtrævl ˈɪntuː speɪs/" },
+      { en: "take sb to…",                     zh: "带某人去……",             ipa: "/teɪk ˈsʌmbədi tuː/" },
+      { en: "can't wait to do",                 zh: "迫不及待去做",           ipa: "/kɑːnt weɪt tuː duː/" },
+      { en: "tie…to",                           zh: "把……拴在……",             ipa: "/taɪ tuː/" },
+      { en: "so that",                          zh: "为了；以便",             ipa: "/səʊ ðæt/" },
+      { en: "take as many photos as I can",     zh: "尽可能多拍照",           ipa: "/teɪk æz ˈmeni ˈfəʊtəʊz æz aɪ kæn/" },
+      { en: "float around",                     zh: "到处飘",                 ipa: "/fləʊt əˈraʊnd/" },
+      { en: "float away",                       zh: "飘走",                   ipa: "/fləʊt əˈweɪ/" },
+      { en: "get weak",                         zh: "变弱",                   ipa: "/ɡet wiːk/" },
+      { en: "weigh much less",                  zh: "重量轻很多",             ipa: "/weɪ mʌtʃ les/" },
+      { en: "help me breathe",                  zh: "帮我呼吸",               ipa: "/help miː briːð/" },
+      { en: "much less gravity",                zh: "更小的重力",             ipa: "/mʌtʃ les ˈɡrævəti/" },
+      { en: "ride in a spaceship",              zh: "乘坐宇宙飞船旅行",       ipa: "/raɪd ɪn ə ˈspeɪsʃɪp/" },
+      { en: "one day",                          zh: "有朝一日",               ipa: "/wʌn deɪ/" },
+      { en: "in a different way",               zh: "以一种不同的方式",       ipa: "/ɪn ə ˈdɪfrənt weɪ/" },
+      { en: "do some experiments",              zh: "做一些实验",             ipa: "/duː səm ɪkˈsperɪmənts/" },
+      { en: "go on a spacewalk",                zh: "进行太空行走",           ipa: "/ɡəʊ ɒn ə ˈspeɪswɔːk/" },
+      { en: "over the years",                    zh: "多年来",                 ipa: "/ˈəʊvə ðə jɪəz/" },
+      { en: "be curious about",                  zh: "对……感到好奇",           ipa: "/bi ˈkjʊəriəs əˈbaʊt/" },
+      { en: "know about",                        zh: "了解；知道",             ipa: "/nəʊ əˈbaʊt/" },
+      { en: "find out",                          zh: "发现；查明",             ipa: "/faɪnd aʊt/" },
+      { en: "at the beginning of",               zh: "在……开始",              ipa: "/æt ðə bɪˈɡɪnɪŋ əv/" }
+    ],
+
+    /* 四、重点句子（64–71） */
+    sentences: [
+      { num: 64, zh: "所以我们要花大约三天的时间到那里。", en: "So it'll take us about three days to get there." },
+      { num: 65, zh: "我要尽可能多拍照片。", en: "I'm going to take as many photos as I can." },
+      { num: 66, zh: "你会被地球和月球的美景所震撼。", en: "You will be amazed by all the wonderful views of the Earth and the Moon." },
+      { num: 67, zh: "我将计划去星光旅馆的旅行。", en: "I'm going to plan our trip to the Starlight Hotel." },
+      { num: 68, zh: "太空上的生活与地球上的生活大不相同。", en: "Life in space is quite different from life on Earth." },
+      { num: 69, zh: "我要穿上宇航服，进行太空行走。", en: "I'm going to put on a spacesuit and go on a spacewalk." },
+      { num: 70, zh: "在20世纪之前，人们很难发现更多关于它的信息。", en: "Before the 20th century, it was difficult for people to find out more information about it." },
+      { num: 71, zh: "那里的重力要小得多，所以，我们在睡觉时不得不把睡袋绑到墙上。", en: "There is much less gravity, so we will have to tie our sleeping bags to the wall when we sleep." }
+    ]
   }
 ];
 
@@ -1077,7 +1199,10 @@ function getAudio(){
 function expandAbbr(text){
   return String(text).replace(/\bsb's\b/g, "somebody's")
                      .replace(/\bsb\b/g, "somebody")
-                     .replace(/\bsth\b/g, "something");
+                     .replace(/\bsth\b/g, "something")
+                     .replace(/(?:\.{3}|…)/g, " something ")
+                     .replace(/\s+/g, " ")
+                     .trim();
 }
 function warmAudio(){ getAudio(); }
 const VOICE_NAME_TIERS = [
@@ -1181,7 +1306,7 @@ function shuffle(arr){
 (function(){
   const tCore = UNITS.reduce((n,u)=>n+u.core.length,0);
   const tBasic = UNITS.reduce((n,u)=>n+u.basic.length,0);
-  const tPhr = UNITS.reduce((n,u)=>n+u.phrases.length+(u.fillin?u.fillin.length:0),0);
+  const tPhr = UNITS.reduce((n,u)=>n+u.phrases.length+(u.fillin?u.fillin.length:0)+(u.sentences?u.sentences.length:0),0);
   const tDeriv = UNITS.reduce((n,u)=>n+u.core.reduce((m,w)=>m+(w.deriv?w.deriv.length:0),0),0);
   document.getElementById('hero-stats').innerHTML =
     '<div class="stat"><b>'+UNITS.length+'</b><span>个单元</span></div>'+
@@ -1252,6 +1377,7 @@ function makeCard(item, num){
   const box = document.getElementById('unit-groups');
   UNITS.forEach(u=>{
     const nC = u.core.length, nB = u.basic.length, nP = u.phrases.length;
+    const nS = u.sentences ? u.sentences.length : 0;
 
     const divider = document.createElement('div');
     divider.className = 'unit-divider unit-'+u.id;
@@ -1259,7 +1385,7 @@ function makeCard(item, num){
     divider.innerHTML =
       '<div class="u-kicker">'+u.source+'</div>'+
       '<h3>'+u.title+'</h3>'+
-      '<div class="u-meta">'+nC+' 核心词 · '+nB+' 基础词 · '+nP+' 短语</div>';
+      '<div class="u-meta">'+nC+' 核心词 · '+nB+' 基础词 · '+nP+' 短语'+(nS?' · '+nS+' 重点句子':'')+'</div>';
     box.appendChild(divider);
 
     /* 核心词 */
@@ -1304,8 +1430,52 @@ function makeCard(item, num){
       u.fillin.forEach(f=>g4.appendChild(makeFillCard(f)));
       box.appendChild(g4);
     }
+
+    /* 重点句子（如果本单元有） */
+    if(u.sentences && u.sentences.length){
+      box.insertAdjacentHTML('beforeend',
+        '<div class="group-kicker">重点句子 '+
+          u.sentences[0].num+'–'+u.sentences[u.sentences.length-1].num+'</div>'+ 
+        '<div class="group-title">重点句子点读</div>'+ 
+        '<div class="group-desc">点整张卡片揭示内容并朗读完整英文句子。</div>');
+      const g5 = document.createElement('div');
+      g5.className = 'grid-sentence';
+      u.sentences.forEach(s=>g5.appendChild(makeSentenceCard(s)));
+      box.appendChild(g5);
+    }
   });
 })();
+
+function makeSentenceCard(s){
+  const card = document.createElement('div');
+  card.className = 'sentence-card';
+
+  const num = document.createElement('span');
+  num.className = 'fill-num';
+  num.textContent = s.num;
+  card.appendChild(num);
+
+  const zh = document.createElement('div');
+  zh.className = 'sentence-zh';
+  zh.textContent = s.zh;
+  card.appendChild(zh);
+
+  const en = document.createElement('div');
+  en.className = 'sentence-en';
+  en.textContent = s.en;
+  card.appendChild(en);
+
+  const hint = document.createElement('div');
+  hint.className = 'sentence-hint';
+  hint.textContent = '点击朗读完整句子';
+  card.appendChild(hint);
+
+  card.addEventListener('click', ()=>{
+    card.classList.add('revealed');
+    speak(s.en, card, 'reading', 0.54);
+  });
+  return card;
+}
 
 function makeFillCard(f){
   const card = document.createElement('div');
